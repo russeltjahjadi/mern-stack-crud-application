@@ -1,15 +1,21 @@
 import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
+import productRoutes from "./routes/product.routes.js";
 dotenv.config();
 
 const app = express();
 
-app.get("/products", (req, res) => {
-  res.send("Server is ready 123");
-});
+app.use(express.json()); // middle layer - allows us to parse JSON data from the request body
 
-app.listen(3000, () => {
-  connectDB();
-  console.log("Server is running on port http://localhost:3000");
-});
+app.use("/api/products", productRoutes);
+
+// Connect to DB first, then start the server
+const startServer = async () => {
+  await connectDB();
+  app.listen(3000, () => {
+    console.log("Server is running on port http://localhost:3000");
+  });
+};
+
+startServer();
