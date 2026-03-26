@@ -9,4 +9,4 @@ Tech used:
 
 To run the server: npm run dev
 
-currently at 49:00
+currently at 1:14:00
