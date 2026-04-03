@@ -14,7 +14,7 @@ import { Toaster, toaster } from "@/components/ui/toaster";
 const CreatePage = () => {
   const [newProduct, setNewProduct] = React.useState({
     name: "",
-    price: 0,
+    price: "",
     image: "",
   });
 
@@ -30,10 +30,12 @@ const CreatePage = () => {
       });
     } else {
       toaster.success({
+        title: "Success",
         description: "Product created successfully",
         closable: true,
       });
     }
+    setNewProduct({ name: " ", image: " ", price: "" });
   };
 
   return (
