@@ -15,7 +15,7 @@ export const getProducts = async (req, res) => {
 export const createProduct = async (req, res) => {
   // User will send this data
   const product = req.body;
-
+  console.log("this is the product:", product);
   if (!product.name || !product.price || !product.image) {
     return res
       .status(400)

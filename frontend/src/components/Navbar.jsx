@@ -2,6 +2,7 @@ import { Button, Container, Flex, HStack, Text } from "@chakra-ui/react";
 import { ColorModeButton, useColorModeValue } from "@/components/ui/color-mode";
 import { Link } from "react-router-dom";
 import { CiSquarePlus } from "react-icons/ci";
+
 const Navbar = () => {
   const iconColor = useColorModeValue("gray.800", "white");
 
