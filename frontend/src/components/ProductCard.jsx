@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
 
   const handleUpdateProduct = async (product_id, updatedProduct) => {
     const { success, message } = await updateProduct(
-      product._id,
+      product_id,
       updatedProduct,
     );
     if (!success) {
