@@ -2,6 +2,8 @@
 
 A full-stack CRUD application for managing products, built with MongoDB, Express, React, and Node.js.
 
+🌐 **Live Site:** [https://mern-stack-crud-application-nupk.onrender.com](https://mern-stack-crud-application-nupk.onrender.com)
+
 ---
 
 ## Tech Stack
