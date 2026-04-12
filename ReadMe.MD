@@ -171,6 +171,9 @@ mern-stack-crud-application/
 
 ---
 
+## Reference: https://www.youtube.com/watch?v=O3BUHwfHf84&pp=ygUlbWVybiBjcnVkIHN0YWNrIHByb2R1Y3Qgc3RvcmUgbWFuYWdlcg%3D%3D
+
+
 ## License
 
 © 2025 Russel Tjahjadi. All rights reserved.
