@@ -20,7 +20,6 @@ A full-stack CRUD application for managing products, built with MongoDB, Express
 - Node.js
 - Express
 - Mongoose
-- dotenv
 - body-parser
 
 **Database**
