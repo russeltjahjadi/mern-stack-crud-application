@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Product from "../models/product.model.js";
+import { validatePrice } from "../utils/validators.js";
 
 export const getProducts = async (req, res) => {
   try {
@@ -13,9 +14,8 @@ export const getProducts = async (req, res) => {
 };
 
 export const createProduct = async (req, res) => {
-  // User will send this data
   const product = req.body;
-  console.log("this is the product:", product);
+
   if (!product.name || !product.price || !product.image) {
     return res
       .status(400)
@@ -23,19 +23,31 @@ export const createProduct = async (req, res) => {
   }
 
   const newProduct = new Product(product);
+
+  const priceCheck = validatePrice(product.price);
+  if (!priceCheck.valid) {
+    return res
+      .status(400)
+      .json({ success: false, message: priceCheck.message });
+  }
+
   try {
     await newProduct.save();
     res.status(201).json({ success: true, data: newProduct });
   } catch (error) {
-    console.error("Error in Create Product: ", error);
-    return res.status(500).json({ success: false, message: "Server error." });
+    return res.status(500).json({ success: false, message: "Server error..." });
   }
 };
 
 export const updateProduct = async (req, res) => {
   const { id } = req.params;
   const product = req.body;
-
+  const priceCheck = validatePrice(product.price);
+  if (!priceCheck.valid) {
+    return res
+      .status(400)
+      .json({ success: false, message: priceCheck.message });
+  }
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res
       .status(404)

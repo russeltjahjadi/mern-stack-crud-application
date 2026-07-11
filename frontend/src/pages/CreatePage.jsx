@@ -10,8 +10,10 @@ import {
 import { useColorModeValue } from "@/components/ui/color-mode";
 import { useProductStore } from "../store/product";
 import { Toaster, toaster } from "@/components/ui/toaster";
+import { useNavigate } from "react-router-dom";
 
 const CreatePage = () => {
+  const navigate = useNavigate();
   const [newProduct, setNewProduct] = React.useState({
     name: "",
     price: "",
@@ -34,8 +36,9 @@ const CreatePage = () => {
         description: "Product created successfully",
         closable: true,
       });
+      setNewProduct({ name: "", image: "", price: "" });
+      navigate("/");
     }
-    setNewProduct({ name: " ", image: " ", price: "" });
   };
 
   return (
@@ -68,6 +71,8 @@ const CreatePage = () => {
               <Input
                 placeholder="Price"
                 name="price"
+                type="number"
+                min="0.01"
                 value={newProduct.price}
                 onChange={(e) =>
                   setNewProduct({ ...newProduct, price: e.target.value })

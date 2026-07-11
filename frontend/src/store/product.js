@@ -9,16 +9,25 @@ export const useProductStore = create((set) => ({
       return { success: false, message: "Please fill in all fields!!" };
     }
 
-    const res = await fetch("/api/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    });
-    const data = await res.json();
-    set((state) => ({ products: [...state.products, data.data] }));
-    return { success: true, message: "Product created successfully" };
+    try {
+      const res = await fetch("/api/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newProduct),
+      });
+
+      const data = await res.json();
+
+      if (data.success == false) {
+        return { success: false, message: data.message };
+      }
+      set((state) => ({ products: [...state.products, data.data] }));
+      return { success: true, message: "Product created successfully" };
+    } catch {
+      return { success: false, message: "Server error" };
+    }
   },
   fetchProducts: async () => {
     try {
@@ -27,7 +36,7 @@ export const useProductStore = create((set) => ({
       if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
 
       const text = await res.text();
-      if (!text) return; 
+      if (!text) return;
 
       const data = JSON.parse(text);
       set({ products: data.data });
