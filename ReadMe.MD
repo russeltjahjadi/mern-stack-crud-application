@@ -1,4 +1,4 @@
-# 🛍️ MERN Stack Product Manager
+# 🛍️ ShelfFlow
 
 A full-stack CRUD application for managing products, built with MongoDB, Express, React, and Node.js.
 
@@ -171,7 +171,6 @@ mern-stack-crud-application/
 ---
 
 ## Reference: https://www.youtube.com/watch?v=O3BUHwfHf84&pp=ygUlbWVybiBjcnVkIHN0YWNrIHByb2R1Y3Qgc3RvcmUgbWFuYWdlcg%3D%3D
-
 
 ## License
 
