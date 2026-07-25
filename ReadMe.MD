@@ -2,7 +2,7 @@
 
 A full-stack CRUD application for managing products, built with the **MERN** stack (MongoDB, Express, React, Node.js).
 
-> 🔗 **Live Demo:** [mern-stack-crud-application-nupk.onrender.com](https://mern-stack-crud-application-nupk.onrender.com)
+> 🔗 **Live Demo:** [mern-stack-crud-application-nupk.onrender.com](https://shelfflow-qmfk.onrender.com)
 
 ---
 
